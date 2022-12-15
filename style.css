@@ -1,0 +1,152 @@
+* { 
+    margin: 0; 
+    padding: 0; 
+    box-sizing: border-box; 
+    font-family: sans-serif; 
+}
+
+body { 
+    background-color: #ddd;
+}
+
+main { 
+    max-width: 500px; 
+    margin: 50px auto; 
+    background-color: #fff; 
+    padding: 8px; 
+    border-radius: 10px; 
+}
+
+.task {
+    width: 100%;
+    display: flex;
+    padding: 12px; 
+    outline: none; 
+    border: none;
+    background-color: #e6e6e6;
+    border-radius: 10px;
+    font-size: 18px;
+}
+
+input[type=text] { 
+    border: 0px;
+    outline: 0px;
+    background-color: transparent;
+    flex-grow: 1;
+    padding: 0px 8px;
+    font-size: inherit;
+}
+
+input[type=text]::placeholder {
+    color: #ccc;
+}
+
+.task:has(input:focus) {
+    background-color: #ccc;
+}
+
+.tasks-status {
+    display: flex;
+    justify-content: space-between;
+    padding: 8px 0px 8px 8px;
+    border-bottom: 1px solid #ddd;
+}
+
+.tasks-status img {
+    max-width: 17px;
+}
+
+.tasks-status p {
+    font-size: 14px;
+    color: #aaa;
+}
+
+.tasks-status p:first-child {
+    display: flex;
+    gap: 8px;
+}
+
+.fix-border { 
+    border-bottom: none;
+    border-top: 1px solid #ddd;
+}
+
+.pb-0 {
+    padding-bottom: 0px;
+}
+
+ul:has(li) {
+    margin: 10px 0px;
+}
+
+ul li {
+    list-style-type: none;
+    display: flex;
+    padding: 12px;
+    font-size: 18px;
+    align-items: center;
+}
+
+ul li label {
+    flex-grow: 1;
+    padding: 0px 8px;
+    position: relative;
+    padding-left: 25px;
+    cursor: pointer;
+}
+
+ul li input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+    height: 0;
+    width: 0;
+}
+
+.checkmark {
+    position: absolute;
+    top: 2px;
+    left: 0;
+    height: 16px;
+    width: 16px;
+    border: 2px solid #000;
+    border-radius: 50%;
+}
+
+/* Create the checkmark/indicator (hidden when not checked) */
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+/* Show the checkmark when checked */
+label input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/* Style the checkmark/indicator */
+label .checkmark:after {
+    left: 4px;
+    top: 2px;
+    width: 2px;
+    height: 5px;
+    border: solid black;
+    border-width: 0 2px 2px 0;
+    -webkit-transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    transform: rotate(45deg); 
+}
+
+ul li i {
+    display: none !important; 
+}
+
+ul li:hover i {
+    display: block !important;
+    cursor: pointer;
+}
+
+label:has(input:checked) {
+    text-decoration: line-through;
+}
